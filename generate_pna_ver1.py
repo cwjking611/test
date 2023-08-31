@@ -44,3 +44,20 @@ The following script creates a policy definition in Azure for each resource type
     resource_types=$(cat pna_resources.json | jq -r '.[]')
     # Loop through each resource type and create policy definition
     for resource_type in $resource_types
+// Define my jinja template to use for creating multiple pna policy definitions
+
+import jinja2
+
+# Define the jinja template for the policy definition that will be used to create multiple pna policy definitions that support publicNetworkAccess and all effect types.
+# The jinja template uses the following variables:
+#   resource_type: The resource type that supports publicNetworkAccess
+#   provider_namespace: The provider namespace for the resource type
+#   resource_type_name: The name of the resource type
+#   resource_type_display_name: The display name of the resource type
+#   policy_definition_name: The name of the policy definition
+#   policy_definition_display_name: The display name of the policy definition
+#
+# The jinja template is defined in the variable policy_definition_template.
+# The jinja template will be used in a python script to create multiple policy definition json file for each resource type that supports publicNetworkAccess and all effect types.
+#
+policy_definition_template = """
