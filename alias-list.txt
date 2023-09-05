@@ -1,3 +1,0 @@
-publicNetworkAccess
-networkRuleSets
-networkRuleSet
